@@ -1,6 +1,8 @@
 body {
   margin: 0 auto;
   padding: 10px;
+  width: 100%;
+  height: 100%;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   line-height: 1.5;
 }
@@ -9,17 +11,15 @@ header {
   background: grey;
   padding: 10px;
   margin: 20px;
-  justify-content: flex-end;
+  display:flex;
+  justify-content: space-between;
   border-style: solid;
   border-width: medium;
   border-color: black;
 }
 
-.flex_item {
-  padding:10px;
-  margin: 10px;
-  color: black;
-  
+a {
+  color:black;
 }
 
 .flex {
@@ -27,16 +27,20 @@ header {
   margin: 10px;
   display:flex;
 }
-
-.name {
-  justify-self: flex-start;
-  padding: 10px;
-  background-color: lightblue;
-  align-self: center;
-}
-
+/* Is this needed?
 #row {
   flex-direction: row;
+}*/
+
+.name {
+  justify-content: flex-start;
+  padding: 10px;
+  background-color: lightblue;
+  color: red;
+}
+
+.nav {
+  justify-content: flex-end;
 }
 
 .hero-banner {
@@ -46,19 +50,21 @@ header {
   border-style: solid;
   border-width: medium;
   border-color: black;
-  background-color: aqua;
+  background-color: #8AA29E;
   display: flex;
   justify-content: flex-end;
 }
 
 .page-wrapper {
-  height: 1000px;
+  /*height: 1100px;*/
+  width: 90%;
+  height: 90%;
   padding: 10px;
   margin: 20px;
   border-style: solid;
   border-width: medium;
   border-color: black;
-  background-color: rgb(194, 182, 182);
+  background-color: #DB5461;
 }
 
 /* Put the grids for the 3 separate sections of About Me, Work and Contact Me, here*/
@@ -69,9 +75,10 @@ header {
     border-style: solid;
     border-width: medium;
     border-color: black;
-    grid-template-columns: 25% 75%;
+    background-color: #686963;
+    grid-template-columns: 20% 80%;
     grid-template-areas:
-    "AboutMe AboutMeContentArea AboutMeContentArea AboutMeContentArea"
+    "AboutMe AboutMeContentArea AboutMeContentArea AboutMeContentArea AboutMeContentArea"
     ;
   }
   
@@ -93,13 +100,16 @@ header {
     border-style: solid;
     border-width: medium;
     border-color: black;
-    grid-template-columns: 25% 75%;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    background-color: #8AA29E;
+    /*height: 800px;*/
+    width: 90%;
+    height: 90%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas:
-    "Work WorkContentArea WorkContentArea WorkContentArea"
-    "Work WorkContentArea WorkContentArea WorkContentArea"
-    "Work WorkContentArea WorkContentArea WorkContentArea"
-    "Work WorkContentArea WorkContentArea WorkContentArea"
+    "Work WorkContentArea1 WorkContentArea1"
+    "Work WorkContentArea1 WorkContentArea1"
+    "Work WorkContentArea2 WorkContentArea3"
     ;
   }
   
@@ -107,16 +117,45 @@ header {
     grid-area: Work;
   }
 
-  #Work Content Area {
-    grid-area: WorkContentArea;
+  #Week1 {
+    grid-area: WorkContentArea1;
+    background-image: url(./Assets/Images/digital-marketing-meeting.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 20px;
+    border-style: solid;
+    border-width: medium;
+    border-color: black;
   }
   
+  #Pre-Work {
+    grid-area: WorkContentArea2;
+    margin: 20px;
+    background-image: url(./Assets/Images/Pre-work\ Study\ Guide.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-style: solid;
+    border-width: medium;
+    border-color: black;
+  }
+  
+  #Refresh {
+    grid-area: WorkContentArea3;
+    margin: 20px;
+    background-image: url(./Assets/Images/online-reputation-management.jpg);
+    background-size: cover;
+    border-style: solid;
+    border-width: medium;
+    border-color: black;
+  }
+
   #contact {
     margin: 20px;
     border-style: solid;
     border-width: medium;
     border-color: black;
     display: grid;
+    background-color: #3D5467;
     grid-template-columns: 25% 75%;
     grid-template-areas:
     "Contact ContactContentArea"
@@ -131,7 +170,6 @@ header {
     grid-area: ContactContentArea;
   }
 
-  /*This target is not correct*/
   .categoryGridArea ul {
     display: flex;
     justify-content: space-around;
@@ -142,10 +180,13 @@ header {
   display: inline;
 }
 
-h2 {color: red;}
+h2 {color: black}
+
 * {
   box-sizing: border-box;
-}h1,
+}
+
+h1,
 h2,
 h3,
 h4,
@@ -156,4 +197,70 @@ h6 {
 
 p {
   margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  #work {
+    margin: 20px;
+    display: grid;
+    border-style: solid;
+    border-width: medium;
+    border-color: black;
+    background-color: #8AA29E;
+    /*height: 800px;*/
+    width: 90%;
+    height: 90%;
+    grid-template-rows: 100px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "Work"
+    "WorkContentArea1"
+    "Work WorkContentArea2"
+    "Work WorkContentArea3"
+    ;
+  }
+
+#contact {
+  width: 90%;
+  height: 90%;
+}
+
+.categoryGridArea ul {
+  display: inline;
+}
+/*#contact ul {
+  width: 90%;
+  height: 90%;
+}*/
+}
+
+@media only screen and (max-width: 480px) {
+  #work {
+    margin: 20px;
+    display: grid;
+    border-style: solid;
+    border-width: medium;
+    border-color: black;
+    background-color: #8AA29E;
+    /*height: 800px;*/
+    width: 90%;
+    height: 90%;
+    grid-template-rows: 100px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "Work"
+    "WorkContentArea1"
+    "Work WorkContentArea2"
+    "Work WorkContentArea3"
+    ;
+  }
+
+#contact {
+  width: 90%;
+  height: 90%;
+}
+
+.categoryGridArea ul {
+  display: inline;
+}
 }
